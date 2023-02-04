@@ -35,16 +35,18 @@ export default function Content() {
     }
     return (
         <main>
-            <ul>
-                {items.map((item)=>(
-                    <li className='item' key={item.id}>
-                        <input type='checkbox' onChange={()=>{handleCheck(item.id)}} checked={item.checked}></input>
-                        <label style={(item.checked)?{textDecoration:'line-through'}:null} onDoubleClick={()=>{handleCheck(item.id)}}>{item.item}</label>
-                       <FaTrashAlt onClick={()=>handleDelete(item.id)} role="button" tabIndex="0"></FaTrashAlt>
-                    </li>
-                    
-                ))}
-            </ul>
+        {items.length?(
+                <ul>
+                    {items.map((item)=>(
+                        <li className='item' key={item.id}>
+                            <input type='checkbox' onChange={()=>{handleCheck(item.id)}} checked={item.checked}></input>
+                            <label style={(item.checked)?{textDecoration:'line-through'}:null} onDoubleClick={()=>{handleCheck(item.id)}}>{item.item}</label>
+                        <FaTrashAlt onClick={()=>handleDelete(item.id)} role="button" tabIndex="0"></FaTrashAlt>
+                        </li>
+                        
+                    ))}
+                </ul>
+            ):(<h1>list is empty</h1>)}
         </main>
     )
 }
