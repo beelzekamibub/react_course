@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Header() {
+export default function Header({title}) {
     const headerStyle={
         backgroundColor:'mediumorchid', color:'white'
     };
@@ -8,10 +8,13 @@ export default function Header() {
       console.log(e);
     }
   return (
-    // <header style={headerStyle}>
     <header>
-        <h1 onDoubleClick={handleClick}>groceries</h1>
+        <h1 onDoubleClick={handleClick}>{title}</h1>
         <button onClick={(e)=>{handleClick(e)}}> click it </button>
     </header>
   )
+}
+
+Header.defaultProps={
+  title: "defeault title"
 }
